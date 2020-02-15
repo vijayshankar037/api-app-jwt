@@ -1,7 +1,7 @@
 # What Is Token-based Authentication?
 Token-based authentication (also known as JSON Web Token authentication) is a new way of handling the authentication of users in applications. It is an alternative to session-based authentication.
 
-
+![JWT](http://i.imgur.com/xkvip2y.jpg)
 
 - The most notable difference between the session-based and token-based authentication is that session-based authentication relies heavily on the server. A record is created for each logged-in user.
 
