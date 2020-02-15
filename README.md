@@ -26,3 +26,18 @@ Because the application does not rely on cookies for authentication, it is invul
 
 - Performance
 In terms of server-side load, a network roundtrip (e.g. finding a session on a database) is likely to take more time than calculating an HMACSHA256 code to validate a token and parsing its contents. This makes token-based authentication faster than the traditional alternative.
+
+# Does It Work?
+Create a test user in `rails c`
+```ruby
+User.create!(email: 'example@mail.com' , password: '123456789' , password_confirmation:'123456789')
+```
+- Start the rails server `rails s`
+- Send curl request to that server to get token(jwt)
+```ruby
+curl -H "Content-Type: application/json" -X POST -d '{"email":"example@mail.com","password":"123456789"}' http://localhost:3000/authenticate
+```
+- verify token with further request:
+```ruby
+curl -H "Authorization: <YOUR-TOKEN>" http://localhost:3000/items
+```
